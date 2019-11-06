@@ -21,7 +21,7 @@ function Signin(props) {
 		api()
 			.post("/api/login", data)
 			.then(result => {
-				localStorage.setItem("token", result.data.token)
+				localStorage.setItem("token", result.data.payload)
 				props.history.push("/")
 			})
 			.catch(err => {
@@ -31,7 +31,7 @@ function Signin(props) {
 	
 	return (
 		<form onSubmit={handleSubmit}>
-			{error && <div className="error">{error}</div>}
+			{error && <div>{error}</div>}
 
 			<input type="username" name="username" placeholder="Username" value={data.username} onChange={handleChange} />
 			<input type="password" name="password" placeholder="Password" value={data.password} onChange={handleChange} />

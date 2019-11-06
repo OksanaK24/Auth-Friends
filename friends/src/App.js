@@ -14,16 +14,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <nav>
-          <Link to="/">Home</Link>
-          {!signedIn && <Link to="/signin">Sign In</Link>}
-          {signedIn && <Link to="/friendslist">Friends List</Link>}
-          {signedIn && <Link to="/logout">Log Out</Link>}
+        <nav className="Navigation">
+          <Link className="Link" to="/">Home</Link>
+          {!signedIn && <Link className="Link" to="/signin">Sign In</Link>}
+          {signedIn && <Link className="Link" to="/friendslist">Friends List</Link>}
+          {signedIn && <Link className="Link" to="/logout">Log Out</Link>}
         </nav>
 
         <Route exact path="/signin" component={Signin} />
-        <PriviteRoute path="/friendslist" component={FriendsList}/>
-        <PriviteRoute path="/logout" component={Logout}/>
+        <PriviteRoute exact path="/friendslist" component={FriendsList}/>
+        <PriviteRoute exact path="/logout" component={Logout}/>
       </header>
     </div>
   );
